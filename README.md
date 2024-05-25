@@ -3,7 +3,7 @@
 WebChat is a powerful tool that extracts data from provided website links and enables question-answering based on the extracted information. Utilizing advanced AI and natural language processing techniques, WebChat delivers accurate and contextually relevant responses.
 
 <img width="919" alt="image" src="https://github.com/usman-29/WebChat/assets/96678300/c1b0caba-29e3-4650-8261-58f60fd6308e">
-<img width="931" alt="image" src="https://github.com/usman-29/WebChat/assets/96678300/107099ee-d440-46c3-97e2-4c7dc91fbdb9">
+<img width="952" alt="image" src="https://github.com/usman-29/WebChat/assets/96678300/09ea6a07-5927-4731-b3d0-a903288cca7d">
 <img width="949" alt="image" src="https://github.com/usman-29/WebChat/assets/96678300/5f5dbf99-c3d7-4b64-8692-b6362093d4cf">
 
 
