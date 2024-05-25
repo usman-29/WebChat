@@ -44,16 +44,16 @@ WebChat is a powerful tool that extracts data from provided website links and en
 
 WebChat relies on the following Python libraries:
 
-python-dotenv==1.0.1
-unstructured==0.11.8
-faiss-cpu==1.8.0
-flask==3.0.3
-langchain==0.1.20
-langchain_community==0.0.38
-langchain_google_genai==1.0.3
-google-generativeai==0.5.2
-flask-sqlalchemy==2.0.30
-flask-login==0.6.3
+- python-dotenv==1.0.1
+- unstructured==0.11.8
+- faiss-cpu==1.8.0
+- flask==3.0.3
+- langchain==0.1.20
+- langchain_community==0.0.38
+- langchain_google_genai==1.0.3
+- google-generativeai==0.5.2
+- flask-sqlalchemy==2.0.30
+- flask-login==0.6.3
 
 ## Contributing
 
