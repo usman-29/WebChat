@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebChat</title>
+    
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px; 
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        input[type="text"] {
+            width: 600px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #eee;
+        }
+
+        #answer {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            color: #fff;
+            background-color: #333;
+            border: 1px solid #fff; /* Add a border to the box */
+            padding: 20px; /* Add padding inside the box */
+            border-radius: 10px; /* Optionally, add rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <h1>Question Answering</h1>
+    <br><br>
+    <form onsubmit="askQuestion(); return false;">
+        <label for="question">Ask a question:</label>
+        <input type="text" id="question" name="question" placeholder="Enter your question" required>
+        <br>
+        <button type="submit" id="submitButton">Get Answer</button>
+    </form>
+    <h2>Answer</h2>
+    <div id="answer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function askQuestion() {
+            var question = document.getElementById("question").value;
+            var submitButton = document.getElementById("submitButton");
+            var answerContainer = document.getElementById("answer");
+
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.textContent = "Loading...";
+
+            // Send the question to Flask app
+            $.ajax({
+                type: "POST",
+                url: "/process",
+                data: JSON.stringify({ question: question }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(response) {
+                    // Enable submit button
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Get Answer";
+
+                    // Display the answer
+                    answerContainer.innerHTML = "<p>" + response.answer + "</p>";
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error:", error);
+                    // Enable submit button on error
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Get Answer";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
